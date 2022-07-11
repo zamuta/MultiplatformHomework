@@ -14,7 +14,8 @@ class NewsViewModel @Inject constructor() : ViewModel() {
     init {
         val presenter = NewsPresenter()
         presenter.handler = {
-            mNews.value = presenter.news
+            news.value = listOf() // Хак для вызова события обсервера
+            news.value = presenter.news
         }
         this.presenter = presenter
     }
@@ -26,11 +27,9 @@ class NewsViewModel @Inject constructor() : ViewModel() {
     val total: Int
         get() { return this.presenter.total }
 
-    private val mNews = MutableLiveData<List<NewsInfo>>()
-    val news: LiveData<List<NewsInfo>>
-        get() = mNews
+    val news = MutableLiveData<List<NewsInfo>>()
     init {
-        mNews.value = listOf()
+        news.value = listOf()
     }
 
     fun fetchNext() {
