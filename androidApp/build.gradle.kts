@@ -1,5 +1,7 @@
 plugins {
     id("com.android.application")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
 }
 
@@ -49,13 +51,22 @@ dependencies {
     implementation("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.0")
+    implementation("com.google.dagger:hilt-android:2.38.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0-beta01")
+    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
     // Added for Jetpack Compose
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.compose.material:material:$uiComposeVersion")
     implementation("androidx.compose.ui:ui-tooling:$uiComposeVersion")
     implementation("androidx.compose.ui:ui:${rootProject.extra["compose_version"]}")
     implementation("androidx.compose.ui:ui-tooling-preview:${rootProject.extra["compose_version"]}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+    implementation("androidx.compose.runtime:runtime-livedata:$uiComposeVersion")
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }

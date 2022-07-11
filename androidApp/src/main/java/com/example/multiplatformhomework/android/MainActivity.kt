@@ -9,6 +9,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.multiplatformhomework.Greeting
 
 fun greet(): String {
@@ -34,6 +36,7 @@ fun MainView() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = greet())
+        val viewModel = hiltViewModel<NewsViewModel>()
+        NewsScreenView(LocalContext.current, viewModel)
     }
 }
