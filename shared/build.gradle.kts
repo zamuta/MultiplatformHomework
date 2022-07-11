@@ -4,7 +4,7 @@ plugins {
     id("com.android.library")
 }
 
-val coroutines_version = "1.6.3"
+val coroutines_version = "1.6.3-native-mt"
 val serialization_version = "1.3.3"
 val ktor_version = "1.6.8"
 
