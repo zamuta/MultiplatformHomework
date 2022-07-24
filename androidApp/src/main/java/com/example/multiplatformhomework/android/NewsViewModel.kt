@@ -1,11 +1,10 @@
 package com.example.multiplatformhomework.android
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.multiplatformhomework.NewsPresenter
+import com.example.multiplatformhomework.presenters.NewsPresenter
 import dagger.hilt.android.lifecycle.HiltViewModel
-import org.openapitools.client.models.NewsInfo
+import com.example.multiplatformhomework.network.models.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,7 +14,7 @@ class NewsViewModel @Inject constructor() : ViewModel() {
         val presenter = NewsPresenter()
         presenter.handler = {
             news.value = listOf() // Хак для вызова события обсервера
-            news.value = presenter.news
+            news.value = presenter.items
         }
         this.presenter = presenter
     }

@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.style.*
 import androidx.compose.ui.unit.*
-import org.openapitools.client.models.*
+import com.example.multiplatformhomework.network.models.*
 
 @Composable
 fun NewsCellView(context: Context, info: NewsInfo) : Unit {

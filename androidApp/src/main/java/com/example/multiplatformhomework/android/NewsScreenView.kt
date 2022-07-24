@@ -17,7 +17,7 @@ import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.text.*
 import androidx.compose.ui.text.style.*
 import androidx.compose.ui.unit.*
-import org.openapitools.client.models.*
+import com.example.multiplatformhomework.network.models.*
 import org.w3c.dom.NodeList
 
 @Composable

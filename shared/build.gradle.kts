@@ -4,9 +4,9 @@ plugins {
     id("com.android.library")
 }
 
-val coroutines_version = "1.6.3-native-mt"
+val coroutines_version = "1.6.1"
 val serialization_version = "1.3.3"
-val ktor_version = "1.6.8"
+val ktor_version = "2.0.1"
 
 kotlin {
     android()
@@ -26,9 +26,13 @@ kotlin {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serialization_version")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serialization_version")
+                implementation("io.ktor:ktor-client-logging:$ktor_version")
                 implementation("io.ktor:ktor-client-core:$ktor_version")
                 implementation("io.ktor:ktor-client-json:$ktor_version")
                 implementation("io.ktor:ktor-client-serialization:$ktor_version")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
             }
         }
         val commonTest by getting {

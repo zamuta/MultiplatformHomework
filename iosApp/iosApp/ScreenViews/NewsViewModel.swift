@@ -12,9 +12,9 @@ import shared
 final class NewsViewModel: ObservableObject {
     private lazy var presenter: NewsPresenter = {
         let presenter = NewsPresenter()
-        presenter.handler = { [weak self] code in
+        presenter.handler = { [weak self] sucess in
             guard let self = self else { return }
-            self.news = self.presenter.news as! [NewsInfo]
+            self.news = self.presenter.items as! [NewsInfo]
         }
         return presenter
     }()
